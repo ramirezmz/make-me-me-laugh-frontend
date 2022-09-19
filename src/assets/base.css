@@ -4,11 +4,12 @@
   --bg-c-sad: #404E4D;
   --bg-c-poker-face: #8bceeb;
   --bg-c-happy: #FDE74C;
+
+  --color-text: rgba(0, 0, 0, 0.4)
 }
 
 body {
   min-height: 100vh;
-  color: var(--color-text);
   background: var(--color-background);
   line-height: 1.6;
   font-family: sans-serif;

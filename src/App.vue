@@ -1,10 +1,10 @@
 <template>
-  <header>
+  <!-- <header>
     <RouterLink to="/">Inicial | </RouterLink>
     <RouterLink to="/sad">Triste | </RouterLink>
     <RouterLink to="/poker-face">Poker Face | </RouterLink>
     <RouterLink to="/happy">Feliz | </RouterLink>
-  </header>
+  </header> -->
 
   <RouterView v-slot="{ Component }">
     <transition name="fade" mode="out-in">
