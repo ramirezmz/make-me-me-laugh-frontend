@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <div class="container__content">
+  <div class="container__content">
+    <form @submit.prevent="handleSubmit()" class="container__form">
       <h1>Create Account</h1>
       <div class="container__button__social__media">
         <button class="btn__login">
@@ -14,39 +14,66 @@
           <span>Sign up with Facebook</span>
         </button>
       </div>
-      <div class="container__form">
-        <h2>-OR-</h2>
-        <input class="input__login" type="email" placeholder="Email Address" />
-        <input class="input__login" type="password" placeholder="Password" />
-        <button class="btn__send_form">Enter</button>
-      </div>
-    </div>
+      <h2>-OR-</h2>
+      <input
+        class="input__login"
+        type="email"
+        placeholder="Email Address"
+        v-model="email"
+      />
+      <input
+        class="input__login"
+        type="password"
+        placeholder="Password"
+        v-model="password"
+      />
+      <button class="btn__send_form">Enter</button>
+    </form>
   </div>
 </template>
+<script setup lang="ts">
+import { ref } from "vue";
+import axios from "axios";
+
+const email = ref("");
+const password = ref("");
+const handleSubmit = async () => {
+  try {
+    const result = await axios.post("http://localhost:3000/login", {
+      email: email.value,
+      password: password.value,
+    });
+    console.log(result);
+  } catch (e) {
+    console.error(e);
+  }
+};
+</script>
 <style scoped>
-.container {
-  background-color: #fff;
-  position: absolute;
-  top: 0px;
-  left: 110vh;
-  height: 100vh;
-  border-radius: 20px 0px 0px 20px;
+.container__content {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.945);
+  border-radius: 10px;
 }
 
-@media (max-width: 1056px) {
-  .container {
-    position: relative;
+/* min phone */
+@media (max-width: 375px) {
+  .container__content {
     display: flex;
-    justify-content: center;
-    top: 0px;
-    left: 0px;
+    padding: 0;
+  }
+
+  .btn__login span {
+    font-size: 0;
+  }
+  .btn__send_form {
+    margin: 0;
+    width: 100px;
+    height: 30px;
   }
 }
-
-.container__content {
-  padding: 8rem;
-}
-
 .container__content h1 {
   padding: 14px;
 }
