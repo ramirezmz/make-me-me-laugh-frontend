@@ -10,7 +10,7 @@ import Form from "@/components/LoginForm/Form.vue";
 <style scoped>
 img {
   width: 60vw;
-  height: 99vh;
+  height: 100vh;
   position: relative;
 }
 
