@@ -1,7 +1,7 @@
 <template>
   <div class="container__content">
     <form @submit.prevent="handleSubmit()" class="container__form">
-      <h1>Create Account</h1>
+      <h1>Login</h1>
       <div class="container__button__social__media">
         <button class="btn__login">
           <img src="https://img.icons8.com/color/48/000000/google-logo.png" />
