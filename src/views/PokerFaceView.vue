@@ -1,28 +1,57 @@
 <template>
-  <div class="container">
-    <h1>Poker Face</h1>
-    <button @click="isModalOpen = true">Open Modal</button>
-    <img
-      src="https://img.icons8.com/color/96/000000/neutral-emoticon--v1.png"
-    />
-    <Teleport to="#modal">
-      <Transition name="modal">
-        <div class="modal__bg" v-if="isModalOpen">
-          <div class="modal" ref="modal">
-            Click outside this modal to close it
-            <button @click="isModalOpen = false" class="close-btn">x</button>
+  <RouterLink to="/happy">
+    <div class="container">
+      <img
+        src="https://img.icons8.com/color/96/000000/neutral-emoticon--v1.png"
+      />
+      <Teleport to="#modal">
+        <Transition name="modal">
+          <div class="modal__bg" v-if="isModalOpen">
+            <div class="modal" ref="modal">
+              <Card
+                v-show="isLoading"
+                :pic="data.pic"
+                :name="data.name"
+                :joke="data.joke"
+              />
+              <CardSkeleton v-show="!isLoading" />
+              <button @click="isModalOpen = false" class="close-btn">x</button>
+            </div>
           </div>
-        </div>
-      </Transition>
-    </Teleport>
-  </div>
+        </Transition>
+      </Teleport>
+    </div>
+  </RouterLink>
 </template>
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { onClickOutside } from "@vueuse/core";
+import Card from "../components/Card/CardJoke.vue";
+import CardSkeleton from "../components/Card/CardSkeleton.vue";
+import api from "../services/api";
 
-const isModalOpen = ref(false);
+const isLoading = ref(false);
+const isModalOpen = ref(true);
 const modal = ref(null);
+const data = ref({
+  pic: "",
+  name: "",
+  joke: "",
+});
+
+onMounted(() => getData());
+const getData = async () => {
+  setTimeout(async () => {
+    isLoading.value = true;
+    const result = await api.getJoke();
+    data.value = {
+      name: "Roberto",
+      pic: "https://randomuser.me/api/portraits/men/1.jpg",
+      joke: result.data.joke,
+    };
+  }, 1000);
+  isLoading.value = false;
+};
 
 onClickOutside(modal, () => (isModalOpen.value = false));
 </script>
@@ -47,7 +76,7 @@ onClickOutside(modal, () => (isModalOpen.value = false));
   width: 100vw;
   height: 100vh;
 
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.4);
 
   display: flex;
   justify-content: center;
@@ -57,7 +86,8 @@ onClickOutside(modal, () => (isModalOpen.value = false));
 .modal {
   position: relative;
   background: #fff;
-  padding: 50px 100px;
+  max-width: 50vw;
+  padding: 2rem;
   border-radius: 5px;
   box-shadow: 0px 10px 5px 2px rgba(0, 0, 0, 0.1);
 }
