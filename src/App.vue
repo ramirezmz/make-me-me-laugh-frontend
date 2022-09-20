@@ -1,11 +1,4 @@
 <template>
-  <!-- <header>
-    <RouterLink to="/">Inicial | </RouterLink>
-    <RouterLink to="/sad">Triste | </RouterLink>
-    <RouterLink to="/poker-face">Poker Face | </RouterLink>
-    <RouterLink to="/happy">Feliz | </RouterLink>
-  </header> -->
-
   <RouterView v-slot="{ Component }">
     <transition name="fade" mode="out-in">
       <component :is="Component" />
@@ -13,7 +6,7 @@
   </RouterView>
 </template>
 <script setup lang="ts">
-import { RouterLink, RouterView } from "vue-router";
+import { RouterView } from "vue-router";
 </script>
 
 <style scoped>
