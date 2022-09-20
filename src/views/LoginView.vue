@@ -1,23 +1,34 @@
 <template>
   <div class="container">
-    <img src="@/assets/space-bg-2.jpg" alt="space" class="img__background" />
-    <Form />
+    <LoginForm />
   </div>
 </template>
-<script lang="ts" setup>
-import Form from "@/components/LoginForm/Form.vue";
+<script setup lang="ts">
+import LoginForm from "../components/LoginForm/LoginForm.vue";
 </script>
 <style scoped>
-img {
-  width: 60vw;
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   height: 100vh;
-  position: relative;
+  background: #ff512f; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #f09819,
+    #ff512f
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #f09819,
+    #ff512f
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-@media (max-width: 1056px) {
-  img {
-    width: 0vw;
-    height: 0vh;
+@media (max-width: 375px) {
+  .container {
+    height: 150vh;
   }
 }
 </style>

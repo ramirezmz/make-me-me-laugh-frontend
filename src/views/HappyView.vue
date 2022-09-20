@@ -1,13 +1,15 @@
 <template>
   <div class="container">
-    <h1>Feliz</h1>
     <img src="https://img.icons8.com/color/96/000000/smiling.png" />
   </div>
 </template>
 <script setup lang="ts"></script>
 <style scoped>
 .container {
-  background-color: var(--bg-c-happy);
+  /* background-color: var(--bg-c-happy); */
+  background: #ff8008;
+  background: -webkit-linear-gradient(to right, #ffc837, #ff8008);
+  background: linear-gradient(to right, #ffc837, #ff8008);
   height: 100vh;
   display: flex;
   align-items: center;
