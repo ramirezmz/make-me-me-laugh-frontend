@@ -1,20 +1,18 @@
 <template>
   <RouterLink to="/poker-face">
     <div class="container">
-      <h1>Triste</h1>
+      <p>
+        But I think today is a really bad day for him... he missed meeting time,
+        the computer doesn't turn on, and the boss is calling <br />
+        I think a <strong>joke</strong> will help him...
+      </p>
       <img src="https://img.icons8.com/color/96/000000/crying--v1.png" />
+      <span>(Click to tell him a joke)</span>
     </div>
   </RouterLink>
 </template>
 <script setup lang="ts">
 import { RouterLink } from "vue-router";
-
-/*
-function testTimeOut() {
-  console.log("aun nooo");
-  setTimeout(() => console.log("funcionando"), 3000);
-}
-*/
 </script>
 <style scoped>
 .container {
@@ -22,12 +20,18 @@ function testTimeOut() {
   height: 100vh;
   color: #fff;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
-.container h1 {
-  color: var(--color-text);
-  text-decoration: none;
-  margin-right: 2rem;
+.container p {
+  padding: 2rem;
+  font-size: 1.3rem;
+}
+
+.container span {
+  color: rgba(255, 255, 255, 0.727);
+  padding: 2rem;
 }
 </style>
