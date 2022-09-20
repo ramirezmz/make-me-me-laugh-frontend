@@ -2,10 +2,11 @@
   <RouterLink to="/sad">
     <div class="container">
       <h1>Welcome to sadic test!</h1>
-      <span
-        >This face below is Pepito, today, Pepito needs to help to have a good
-        day, perphaps a joke resolve all</span
-      >
+      <p>
+        This face below is Pepito, say Hi! <br />
+        He is tired to do the same routine, go to work, go to daily meetings,
+        make code review, refact code himself, eat, and more...
+      </p>
       <img
         src="https://img.icons8.com/emoji/96/000000/expressionless-face.png"
       />
@@ -26,10 +27,20 @@ import { RouterLink } from "vue-router";
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 .container h1 {
   color: var(--color-text);
-  text-decoration: none;
-  margin-right: 2rem;
+  font-size: 2.7rem;
+}
+
+.container p {
+  color: var(--color-text-p);
+  padding: 2rem;
+  font-size: 1.3rem;
+}
+.container span {
+  color: var(--color-text-p);
+  padding: 2rem;
 }
 </style>
