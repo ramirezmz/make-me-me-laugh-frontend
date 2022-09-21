@@ -36,17 +36,26 @@ $PROJECT_ROOT
     └── main.ts             # Entry point
 ```
 
+## How to run the project?
 
-## Project Setup
-
+To run all project, we need to clone 2 repositories: [frontend](https://github.com/ramirezmz/make-me-me-laugh-frontend) and [backend](https://github.com/ramirezmz/make-me-laugh-backend).
+```sh
+git clone https://github.com/ramirezmz/make-me-me-laugh-frontend
+```
+Enter inside the project
+```sh
+cd make-me-me-laugh-frontend
+```
+Install dependencies
 ```sh
 npm install
 ```
-#### Run project
-
+And then, we'll use `docker-compose` to up the application
 ```sh
 docker-compose up
 ```
+
+### Others scripts
 #### Run Unit Tests with [Vitest](https://vitest.dev/)
 
 ```sh
