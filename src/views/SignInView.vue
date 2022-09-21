@@ -139,13 +139,4 @@ const goToLogin = () => {
   margin-top: 7px;
   border: none;
 }
-
-.btn__send_form {
-  margin-top: 10px;
-  width: 375px;
-  height: 30px;
-  background-color: #279574;
-  color: #fff;
-  border-radius: 8px;
-}
 </style>
