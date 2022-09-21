@@ -1,5 +1,5 @@
 # Make me laugh project
-This project looking for 
+This project seeks to apply frontend knowledge intuitive and simple screens, nice transitions, reusable components, testing for components and best practices.
 ## Ingredients
 ***Frontend***
  - Vue 3
@@ -17,6 +17,26 @@ This project looking for
 - Docker
 - Cors
 - dotenv
+
+## Project structure
+```
+$PROJECT_ROOT
+├── docker-compose.yml      # Entry point
+├── .env                    # Environment file
+├── ...                     # Configs files 
+└── src
+    ├── assets              # Css base to among project
+    ├── components          # UI components
+        ├── Component       # UI component
+            ├── __test__    # Test folder about component
+    ├── router              # Routes of the project
+    └── services            # Handle with api joke
+    └── views               # Project's screens
+    └── App.vue             # Root component
+    └── main.ts             # Entry point
+```
+
+
 ## Project Setup
 
 ```sh
