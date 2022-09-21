@@ -28,7 +28,7 @@
           placeholder="Password"
           v-model="password"
         />
-        <button class="btn__send_form">Enter</button>
+        <button class="btn__send_form" @click="goToLogin">Register</button>
       </form>
     </div>
   </div>
@@ -36,7 +36,9 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import axios from "axios";
+import { useRouter } from "vue-router";
 
+const router = useRouter();
 const email = ref("");
 const password = ref("");
 const handleSubmit = async () => {
@@ -49,6 +51,10 @@ const handleSubmit = async () => {
   } catch (e) {
     console.error(e);
   }
+};
+
+const goToLogin = () => {
+  router.push({ path: "/login" });
 };
 </script>
 <style scoped>
