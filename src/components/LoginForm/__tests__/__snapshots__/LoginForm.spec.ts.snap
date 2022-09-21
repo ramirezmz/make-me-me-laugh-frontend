@@ -1,0 +1,11 @@
+// Vitest Snapshot v1
+
+exports[`Login Form > renders component 1`] = `
+"<div class=\\"container__content\\" data-v-48876232=\\"\\">
+  <!--v-if-->
+  <!--v-if-->
+  <form class=\\"container__form\\" data-v-48876232=\\"\\">
+    <h1 data-v-48876232=\\"\\">Login</h1><input class=\\"input__login\\" type=\\"email\\" placeholder=\\"Email Address\\" data-v-48876232=\\"\\"><input class=\\"input__login\\" type=\\"password\\" placeholder=\\"Password\\" data-v-48876232=\\"\\"><button class=\\"btn__send_form\\" data-v-48876232=\\"\\">Enter</button>
+  </form>
+</div>"
+`;
