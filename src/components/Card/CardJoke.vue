@@ -1,12 +1,12 @@
 <template>
+  <ToastNotificationAccept v-if="isWin" message="You win!" />
   <div class="profile-card">
     <div class="profile-image">
-      <img :src="response.pic || props.pic" />
       <img :src="response.feel" />
     </div>
     <div class="profile-info">
-      <span>Written By</span>
-      <h3>{{ response.name || props.name }}</h3>
+      <span>Read, please...</span>
+      <h3>Try to make me laugh</h3>
       <p>{{ response.joke.joke || props.joke }}</p>
     </div>
     <button class="btn_joke" @click="handleJoke()">Get joke</button>
@@ -15,21 +15,38 @@
 <script setup lang="ts">
 import api from "../../services/api";
 import { ref } from "vue";
+import ToastNotificationAccept from "../ToastNotification/ToastNotificationAccept.vue";
+
+const isWin = ref(false);
 
 const response = ref({
-  name: "",
-  pic: "",
   joke: "",
-  feel: "https://img.icons8.com/color/96/000000/neutral-emoticon--v1.png",
+  feel: "https://img.icons8.com/color/96/000000/crying--v1.png",
 });
 const handleJoke = async () => {
   const data = await api.getJoke();
-  response.value = {
-    name: "Pedrinho",
-    pic: "https://randomuser.me/api/portraits/men/3.jpg",
-    joke: data.data,
-    feel: "https://img.icons8.com/color/96/000000/smiling.png",
-  };
+  if (
+    response.value.feel != "https://img.icons8.com/color/96/000000/smiling.png"
+  ) {
+    response.value = {
+      joke: data.data,
+      feel: "https://img.icons8.com/color/96/000000/neutral-emoticon--v1.png",
+    };
+  } else {
+    console.log("ok");
+    response.value = {
+      joke: data.data,
+      feel: "https://img.icons8.com/color/96/000000/smiling.png",
+    };
+    isWin.value = true;
+  }
+  setTimeout(() => {
+    response.value = {
+      joke: data.data,
+      feel: "https://img.icons8.com/color/96/000000/smiling.png",
+    };
+    isWin.value = false;
+  }, 5000);
 };
 
 interface CardProps {

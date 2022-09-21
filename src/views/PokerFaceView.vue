@@ -8,6 +8,10 @@
         <Transition name="modal">
           <div class="modal__bg" v-if="isModalOpen">
             <div class="modal" ref="modal">
+              <ToastNotification
+                v-if="messageTilNotHappy"
+                message="Wait! Pepito is still not happy..."
+              />
               <Card
                 v-show="isLoading"
                 :pic="data.pic"
@@ -29,7 +33,10 @@ import { onClickOutside } from "@vueuse/core";
 import Card from "../components/Card/CardJoke.vue";
 import CardSkeleton from "../components/Card/CardSkeleton.vue";
 import api from "../services/api";
+import ToastNotification from "../components/ToastNotification/ToastNotification.vue";
 
+const isHappy = ref(false);
+const messageTilNotHappy = ref(false);
 const isLoading = ref(false);
 const isModalOpen = ref(true);
 const modal = ref(null);
@@ -53,7 +60,19 @@ const getData = async () => {
   isLoading.value = false;
 };
 
-onClickOutside(modal, () => (isModalOpen.value = false));
+onClickOutside(modal, () => {
+  if (isHappy.value === false) {
+    messageTilNotHappy.value = true;
+    setTimeout(() => {
+      messageTilNotHappy.value = false;
+    }, 2000);
+  } else {
+    isModalOpen.value = false;
+  }
+  setTimeout(() => {
+    isHappy.value = true;
+  }, 7000);
+});
 </script>
 <style scoped>
 .container {
