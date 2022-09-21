@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  my-frontend:
+    container_name: my_frontend
+    image: node:16.15
+    working_dir: /app
+    command: bash -c "npm run dev"
+    volumes:
+      - '.:/app'
+    ports:
+      - 8000:8000
