@@ -1,0 +1,12 @@
+// Vitest Snapshot v1
+
+exports[`Card joke > renders component on screen 1`] = `
+"<!--v-if-->
+<div class=\\"profile-card\\">
+  <div class=\\"profile-image\\"><img src=\\"https://img.icons8.com/color/96/000000/crying--v1.png\\"></div>
+  <div class=\\"profile-info\\"><span>Read, please...</span>
+    <h3>Try to make me laugh</h3>
+    <p>joke</p>
+  </div><button class=\\"btn_joke\\">Get joke</button>
+</div>"
+`;
