@@ -36,11 +36,8 @@ import { RouterLink } from "vue-router";
 
 .container p {
   color: var(--color-text-p);
-  padding: 2rem;
-  font-size: 1.3rem;
 }
 .container span {
   color: var(--color-text-p);
-  padding: 2rem;
 }
 </style>

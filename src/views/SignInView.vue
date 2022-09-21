@@ -3,19 +3,6 @@
     <div class="container__content">
       <form @submit.prevent="handleSubmit()" class="container__form">
         <h1>Create an Account</h1>
-        <div class="container__button__social__media">
-          <button class="btn__login">
-            <img src="https://img.icons8.com/color/48/000000/google-logo.png" />
-            <span>Sign up with Google</span>
-          </button>
-          <button class="btn__login">
-            <img
-              src="https://img.icons8.com/fluency/48/000000/facebook-new.png"
-            />
-            <span>Sign up with Facebook</span>
-          </button>
-        </div>
-        <h2>-OR-</h2>
         <input
           class="input__login"
           type="email"

@@ -29,13 +29,23 @@
   touch-action: manipulation;
 }
 
-.button-37:hover {
+.btn__send_form:hover {
   box-shadow: rgba(0, 0, 0, 0.15) 0 3px 9px 0;
   transform: translateY(-2px);
 }
 
 @media (min-width: 768px) {
-  .button-37 {
+  .btn__send_form {
     padding: 10px 30px;
   }
+}
+
+.container p {
+  padding: 2rem;
+  font-size: 1.3rem;
+}
+
+.container span {
+  color: rgba(255, 255, 255, 0.727);
+  padding: 2rem;
 }

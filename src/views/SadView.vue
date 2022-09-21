@@ -25,13 +25,7 @@ import { RouterLink } from "vue-router";
   justify-content: center;
   text-align: center;
 }
-.container p {
-  padding: 2rem;
-  font-size: 1.3rem;
-}
-
 .container span {
   color: rgba(255, 255, 255, 0.727);
-  padding: 2rem;
 }
 </style>

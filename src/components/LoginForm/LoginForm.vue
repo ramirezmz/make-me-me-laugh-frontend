@@ -7,19 +7,6 @@
     <ToastNotificationAccept v-if="validAccess" message="Welcome again!" />
     <form @submit.prevent="handleSubmit()" class="container__form">
       <h1>Login</h1>
-      <div class="container__button__social__media">
-        <button class="btn__login">
-          <img src="https://img.icons8.com/color/48/000000/google-logo.png" />
-          <span>Sign up with Google</span>
-        </button>
-        <button class="btn__login">
-          <img
-            src="https://img.icons8.com/fluency/48/000000/facebook-new.png"
-          />
-          <span>Sign up with Facebook</span>
-        </button>
-      </div>
-      <h2>-OR-</h2>
       <input
         class="input__login"
         type="email"
@@ -104,23 +91,6 @@ const goHome = () => {
 }
 .container__content h1 {
   padding: 14px;
-}
-
-.container__button__social__media {
-  display: flex;
-}
-.btn__login {
-  display: flex;
-  margin: 1rem;
-  justify-content: space-between;
-  align-items: center;
-  padding: 3px;
-  border-radius: 8px;
-  background-color: #fff;
-}
-.btn__login img {
-  width: 1.8rem;
-  padding-right: 5px;
 }
 .container__form {
   padding: 1rem;

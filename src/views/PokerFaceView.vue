@@ -1,6 +1,7 @@
 <template>
   <RouterLink to="/happy">
     <div class="container">
+      <p>Relax, now pepito is happy!</p>
       <img
         src="https://img.icons8.com/color/96/000000/neutral-emoticon--v1.png"
       />
@@ -13,17 +14,18 @@
                 message="Wait! Pepito is still not happy..."
               />
               <Card
-                v-show="isLoading"
+                v-if="isLoading"
                 :pic="data.pic"
                 :name="data.name"
                 :joke="data.joke"
               />
-              <CardSkeleton v-show="!isLoading" />
+              <CardSkeleton v-else />
               <button @click="isModalOpen = false" class="close-btn">x</button>
             </div>
           </div>
         </Transition>
       </Teleport>
+      <span>(click to continue)</span>
     </div>
   </RouterLink>
 </template>
@@ -79,8 +81,10 @@ onClickOutside(modal, () => {
   background-color: var(--bg-c-poker-face);
   height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 .container h1 {
   color: var(--color-text);
@@ -129,5 +133,16 @@ onClickOutside(modal, () => {
 .modal-leave-to {
   opacity: 0;
   transform: scale(1.1);
+}
+
+.container p {
+  color: rgb(0, 0, 0);
+  padding: 2rem;
+  font-size: 1.3rem;
+}
+
+.container span {
+  color: rgba(0, 0, 0, 0.727);
+  padding: 2rem;
 }
 </style>
