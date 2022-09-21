@@ -1,0 +1,7 @@
+// Vitest Snapshot v1
+
+exports[`Toast Notification > renders component 1`] = `
+"<div class=\\"container_message\\" data-v-906bc997=\\"\\">
+  <p data-v-906bc997=\\"\\">Testando ....</p>
+</div>"
+`;
