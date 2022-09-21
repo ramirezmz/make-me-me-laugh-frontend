@@ -1,5 +1,10 @@
 <template>
   <div class="container__content">
+    <ToastNotification
+      v-if="isInvalid"
+      message="The email or password you’ve entered is incorrect."
+    />
+    <ToastNotificationAccept v-if="validAccess" message="Welcome again!" />
     <form @submit.prevent="handleSubmit()" class="container__form">
       <h1>Login</h1>
       <div class="container__button__social__media">
@@ -34,19 +39,41 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import axios from "axios";
+import { useRouter } from "vue-router";
+import ToastNotification from "../ToastNotification/ToastNotification.vue";
+import ToastNotificationAccept from "../ToastNotification/ToastNotificationAccept.vue";
+
+const router = useRouter();
 
 const email = ref("");
 const password = ref("");
+const isInvalid = ref(false);
+const validAccess = ref(false);
+
 const handleSubmit = async () => {
-  try {
-    const result = await axios.post("http://localhost:3000/login", {
-      email: email.value,
-      password: password.value,
-    });
-    console.log(result);
-  } catch (e) {
-    console.error(e);
+  if (email.value === "test@test.com" && password.value === "123456789") {
+    try {
+      const result = await axios.post("http://localhost:3000/login", {
+        email: email.value,
+        password: password.value,
+      });
+      validAccess.value = true;
+      setTimeout(() => {
+        goHome();
+      }, 2000);
+    } catch (e) {
+      console.error(e);
+    }
+  } else {
+    isInvalid.value = true;
   }
+  setTimeout(() => {
+    isInvalid.value = false;
+  }, 3000);
+};
+
+const goHome = () => {
+  router.push({ path: "/" });
 };
 </script>
 <style scoped>
@@ -94,7 +121,6 @@ const handleSubmit = async () => {
   width: 1.8rem;
   padding-right: 5px;
 }
-
 .container__form {
   padding: 1rem;
   display: flex;
